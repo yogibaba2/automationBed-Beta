@@ -1,0 +1,539 @@
+{
+    "_id" : "8",
+    "PROJECT" : "5",
+    "TENANT" : "0",
+    "BRANDING" : {
+        "BRAND_COLOR" : "#c7861f",
+        "TEXT_COLOR" : "#fff"
+    },
+    "ABBR" : "PRADAXA-MICHAEL-BRADY-LYNCH",
+    "FILE_BOUND_PROJECT_NAME" : "Pradaxa - MBL",
+    "FILE_BOUND" : {
+        "PROJECT_NAME" : "Pradaxa - MBL",
+        "META_DATA" : [ 
+            {
+                "KEY" : "FileBoundId",
+                "VALUE" : ""
+            }, 
+            {
+                "KEY" : "Status",
+                "VALUE" : [ 
+                    "New", 
+                    "Edit"
+                ]
+            }, 
+            {
+                "KEY" : "DocumentTypeId",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "osgrg",
+                    "COLLECTION" : "document",
+                    "FIELD" : "_id"
+                }
+            }, 
+            {
+                "KEY" : "DocumentTypeName",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "osgrg",
+                    "COLLECTION" : "document",
+                    "FIELD" : "name"
+                }
+            }, 
+            {
+                "KEY" : "ProgramID",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "program",
+                    "FIELD" : "_id"
+                }
+            }, 
+            {
+                "KEY" : "ProjectID",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "project",
+                    "FIELD" : "_id"
+                }
+            }, 
+            {
+                "KEY" : "CaseID",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "case",
+                    "VALUE" : "_id"
+                }
+            }, 
+            {
+                "KEY" : "GRGID",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "case",
+                    "FIELD" : "GRG_ID"
+                }
+            }, 
+            {
+                "KEY" : "LienID",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "case",
+                    "FIELD" : "GRG_ID"
+                }
+            }, 
+            {
+                "KEY" : "ContactID",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "case",
+                    "VALUE" : "_id"
+                }
+            }, 
+            {
+                "KEY" : "First Name",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "case_pii",
+                    "FIELD" : "FIRST_NAME"
+                }
+            }, 
+            {
+                "KEY" : "Last Name",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "case_pii",
+                    "FIELD" : "LAST_NAME"
+                }
+            }, 
+            {
+                "KEY" : "Date Received",
+                "VALUE" : ""
+            }, 
+            {
+                "KEY" : "SSN",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "case_pii",
+                    "FIELD" : "SSN"
+                }
+            }, 
+            {
+                "KEY" : "DOB",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "case_pii",
+                    "FIELD" : "DOB"
+                }
+            }, 
+            {
+                "KEY" : "Firm ID",
+                "DATA_SOURCE" : {
+                    "SOURCE" : "ews",
+                    "COLLECTION" : "case",
+                    "FIELD" : "FIRM_ID"
+                }
+            }
+        ]
+    },
+    "DOCUMENTS" : [ 
+        {
+            "ID" : 0,
+            "ALLOWED_COUNT" : 10
+        }
+    ],
+    "EXCEL_UPLOAD_CONFIG_KEY" : 1,
+    "VERTICALS" : {
+        "MRR" : {
+            "DISCREPANCY" : {
+                "FORM_FIELDS" : [ 
+                    "PASSWORD_PROTECTED", 
+                    "DOB", 
+                    "LAST_NAME", 
+                    "FIRST_NAME", 
+                    "MIDDLE_NAME", 
+                    "COMINGLED_RECORDS", 
+                    "CORRUPT_FILE", 
+                    "RECORD_LINK_NOT_WORKING", 
+                    "FILE_ADJUSTMENT_TRANSFER"
+                ]
+            },
+            "CASE_CONFIG" : {
+                "LIST_KEY" : "PRADAXA_MBL_LIST",
+                "FORM_KEY" : "PRADAXA_MICHAEL_BRADY_LYNCH_FORM",
+                "UNIQUE_FIELD" : "GRG_ID",
+                "CLAIMANT_FIELDS" : [ 
+                    "CLAIMANT.SSN", 
+                    "CLAIMANT.GENDER", 
+                    "CLAIMANT.DOB", 
+                    "CLAIMANT.DOD", 
+                    "CLAIMANT.LAST_NAME", 
+                    "CLAIMANT.FIRST_NAME", 
+                    "CLAIMANT.MIDDLE_NAME"
+                ]
+            },
+            "EXCEL_UPLOAD_TEMPLATE" : {
+                "FORM_FIELDS" : [ 
+                    "GRG_ID", 
+                    "FIRM_NAME", 
+                    "DOB", 
+                    "DOD",
+                    "GENDER", 
+                    "CAUSE_OF_DEATH", 
+                    "DEATH_CERTIFICATE_FLAG", 
+                    "FIRST_NAME", 
+                    "MIDDLE_NAME", 
+                    "LAST_NAME"
+                ]
+            },
+            "REPORT" : {
+                "QA_RESULTS_BY_SECTION" : {
+                    "BADGE_CONFIG" : [ 
+                        {
+                            "GREATER_THAN" : 100,
+                            "CLASS" : "green"
+                        }, 
+                        {
+                            "GREATER_THAN" : 90,
+                            "CLASS" : "warning"
+                        }, 
+                        {
+                            "GREATER_THAN" : 0,
+                            "CLASS" : "red"
+                        }
+                    ]
+                },
+                "QA_PASS_REPORT" : {
+                    "PASS_PERCENTAGE" : 90
+                }
+            },
+            "REVIEWER_TYPE" : {
+                "MRR" : {
+                    "SLA" : {
+                        "REVIEWER" : {
+                            "LEVEL_1_DUE_DATE" : 5,
+                            "LEVEL_2_DUE_DATE" : 7,
+                            "STATUS_COLOR_CODE" : {
+                                "R" : "",
+                                "A" : "",
+                                "G" : ""
+                            }
+                        },
+                        "QA" : {
+                            "LEVEL_1_DUE_DATE" : 3,
+                            "LEVEL_2_DUE_DATE" : 5,
+                            "STATUS_COLOR_CODE" : {
+                                "R" : "",
+                                "A" : "",
+                                "G" : ""
+                            }
+                        }
+                    },
+                    "QUESTIONNAIRES_PROTOCOL" : {
+                        "PRADAXA_MBL_POI_LESS_THAN_3_DAYS_POU" : {
+                            "FAILURE_MESSAGE" : "POI; 0-3 days POU (acute records only LC): Proof of drug usage found within 3 days of proof of injury.",
+                            "ERROR_TYPE" : "Proof Of Use"
+                        },
+                        "PRADAXA_MBL_POI_4_OR_5_DAYS_POU" : {
+                            "FAILURE_MESSAGE" : "POI; 4-5 days POU(acute records only LC): Proof of drug usage found within 4-5 days of proof of injury.",
+                            "ERROR_TYPE" : "Proof Of Use"
+                        },
+                        "PRADAXA_MBL_POI_GREATER_THAN_5_DAYS_POU" : {
+                            "FAILURE_MESSAGE" : "POI; >5 (acute records only LC): Proof of drug usage found before 5 days of proof of injury.",
+                            "ERROR_TYPE" : "Proof Of Use"
+                        },
+                        "PRADAXA_MBL_NO_POI_USAGE_PRESENT" : {
+                            "FAILURE_MESSAGE" : "No POI; Usage Present: Drug usage found but there is no proof of injury.",
+                            "ERROR_TYPE" : "Proof Of Use"
+                        },
+                        "PRADAXA_MBL_NO_POI_USAGE_NOT_PRESENT" : {
+                            "FAILURE_MESSAGE" : "No POI; No POU: No drug usage found and there is no proof of injury.",
+                            "ERROR_TYPE" : "Proof Of Use"
+                        },
+                        "PRADAXA_MBL_HISTORICAL_POI_USAGE_PRESENT" : {
+                            "FAILURE_MESSAGE" : "Historical Injury; Usage Present: Drug usage found with historical proof of injury.",
+                            "ERROR_TYPE" : "Proof Of Use"
+                        },
+                        "PRADAXA_MBL_HISTORICAL_POI_USAGE_NOT_PRESENT" : {
+                            "FAILURE_MESSAGE" : "Historical Injury; No Usage Present: No drug usage found with historical proof of injury.",
+                            "ERROR_TYPE" : "Proof Of Use"
+                        },
+                        "PRADAXA_MBL_INJURY_DATE_NOT_PROVIDED" : {
+                            "FAILURE_MESSAGE" : "Date of Injury is not provided in Injury section.",
+                            "ERROR_TYPE" : "Proof Of Injury"
+                        },
+                        "PRADAXA_MBL_PROOF_OF_USE_DATE_FILLED_NOT_PROVIDED" : {
+                            "FAILURE_MESSAGE" : "Date Filled is not provided in Proof Of Use section.",
+                            "ERROR_TYPE" : "Proof Of Injury"
+                        },
+                        "PRADAXA_MBL_PROOF_OF_INJURY_NOT_PROVIDED" : {
+                            "FAILURE_MESSAGE" : "Injury Evidence Category is not provided in Injury section.",
+                            "ERROR_TYPE" : "Proof Of Injury"
+                        },
+                        "PRADAXA_MBL_PROOF_OF_USE_NOT_PROVIDED" : {
+                            "FAILURE_MESSAGE" : "Drug Usage Present is not provided in Proof Of Use section.",
+                            "ERROR_TYPE" : "Proof Of Injury"
+                        },
+                        "PRADAXA_MBL_INJURY_DATE_NOT_BLANK" : {
+                            "FAILURE_MESSAGE" : "Date of Injury is not provided in Injury section.",
+                            "ERROR_TYPE" : "Proof Of Injury"
+                        },
+                        "PRADAXA_MBL_PROOF_OF_USE_DATE_FILLED_NOT_BLANK" : {
+                            "FAILURE_MESSAGE" : "Date Filled is not provided in Proof Of Use section.",
+                            "ERROR_TYPE" : "Proof Of Injury"
+                        },
+                        "PRADAXA_MBL_PROOF_OF_INJURY_NOT_BLANK" : {
+                            "FAILURE_MESSAGE" : "Injury Evidence Category is not provided in Injury section.",
+                            "ERROR_TYPE" : "Proof Of Injury"
+                        },
+                        "PRADAXA_MBL_PROOF_OF_USE_NOT_BLANK" : {
+                            "FAILURE_MESSAGE" : "Drug Usage Present is not provided in Proof Of Use section.",
+                            "ERROR_TYPE" : "Proof Of Injury"
+                        }
+                    },
+                    "QUESTIONNAIRES" : [ 
+                        {
+                            "SECTION_KEY" : "INJURY",
+                            "SECTION_NAME" : "Injury",
+                            "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_FORM_PHYSICAL_INJURY",
+                            "HAS_ADD_MORE" : true,
+                            "HAS_MUTIPLE_FILE" : true,
+                            "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                            "HAS_FILE" : true,
+                            "DEPENDENT_SUB_SECTION" : {
+                                "KEY" : "HOSPITALIZED",
+                                "VALUE" : "Y",
+                                "COND" : "=="
+                            },
+                            "SUB_SECTIONS" : [ 
+                                {
+                                    "SECTION_KEY" : "HOSPITAL",
+                                    "SECTION_NAME" : "Hospital",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_HOSPITAL",
+                                    "HAS_ADD_MORE" : true,
+                                    "HAS_FILE" : true,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "SUB_SECTIONS" : [],
+                                    "SCORE" : 10,
+                                    "HAS_SCORE" : true,
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                    "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }
+                            ],
+                            "SCORE" : 10,
+                            "HAS_SCORE" : true,
+                            "SOURCE" : "OS",
+                            "STATUS" : "A",
+                            "CREATED_BY" : "1",
+                            "MODIFIED_BY" : "1"
+                        }, 
+                        {
+                            "SECTION_KEY" : "ADJUSTMENT_FACTOR",
+                            "SECTION_NAME" : "Adjustment Factor",
+                            "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR",
+                            "HAS_ADD_MORE" : false,
+                            "SCORE" : 10,
+                            "SUB_SECTIONS" : [ 
+                                {
+                                    "SECTION_KEY" : "ALCOHOL_USE",
+                                    "SECTION_NAME" : "Alcohol Use",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR_ALCOHOL",
+                                    "HAS_ADD_MORE" : false,
+                                    "HAS_SCORE" : false,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "HAS_FILE" : true,
+                                    "SCORE" : 10,
+                                    "SUB_SECTIONS" : [],
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                   "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }, 
+                                {
+                                    "SECTION_KEY" : "TOBACCO_USE",
+                                    "SECTION_NAME" : "Tobacco Use",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR_TOBACCO",
+                                    "HAS_ADD_MORE" : false,
+                                    "HAS_SCORE" : false,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "HAS_FILE" : true,
+                                    "SCORE" : 10,
+                                    "SUB_SECTIONS" : [],
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                    "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }, 
+                                {
+                                    "SECTION_KEY" : "DRUG_USE",
+                                    "SECTION_NAME" : "Drug Use",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR_DRUG",
+                                    "HAS_ADD_MORE" : false,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "HAS_FILE" : true,
+                                    "HAS_SCORE" : false,
+                                    "SCORE" : 10,
+                                    "SUB_SECTIONS" : [],
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                    "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }, 
+                                {
+                                    "SECTION_KEY" : "BMI",
+                                    "SECTION_NAME" : "BMI",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR_BMI",
+                                    "HAS_ADD_MORE" : false,
+                                    "HAS_SCORE" : false,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "HAS_FILE" : true,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "SCORE" : 10,
+                                    "SUB_SECTIONS" : [],
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                    "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }, 
+                                {
+                                    "SECTION_KEY" : "MEDICAL_HISTORY",
+                                    "SECTION_NAME" : "Medical History",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR_MEDICAL_HISTORY",
+                                    "HAS_ADD_MORE" : true,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "HAS_FILE" : true,
+                                    "HAS_SCORE" : false,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "SCORE" : 10,
+                                    "SUB_SECTIONS" : [],
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                   "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }, 
+                                {
+                                    "SECTION_KEY" : "SURGERY",
+                                    "SECTION_NAME" : "Surgical History",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR_SURGERY",
+                                    "HAS_ADD_MORE" : true,
+                                    "HAS_SCORE" : false,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "HAS_FILE" : true,
+                                    "SCORE" : 10,
+                                    "SUB_SECTIONS" : [],
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                    "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }, 
+                                {
+                                    "SECTION_KEY" : "BLEED_HISTORY",
+                                    "SECTION_NAME" : "Bleed History",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR_BLEED_HISTORY",
+                                    "HAS_ADD_MORE" : false,
+                                    "HAS_SCORE" : false,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "HAS_FILE" : true,
+                                    "SCORE" : 10,
+                                    "SUB_SECTIONS" : [],
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                    "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }, 
+                                {
+                                    "SECTION_KEY" : "INSURANCE_PROVIDER",
+                                    "SECTION_NAME" : "Insurance Provider",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR_INSUARANCE_PROVIDER",
+                                    "HAS_ADD_MORE" : true,
+                                    "HAS_SCORE" : false,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "HAS_FILE" : true,
+                                    "SCORE" : 10,
+                                    "SUB_SECTIONS" : [],
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                    "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }, 
+                                {
+                                    "SECTION_KEY" : "IMPAIRMENT",
+                                    "SECTION_NAME" : "Impairment",
+                                    "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_ADJUSTMENT_FACTOR_IMPAIRMENT",
+                                    "HAS_ADD_MORE" : false,
+                                    "HAS_SCORE" : false,
+                                    "HAS_MUTIPLE_FILE" : true,
+                                    "HAS_FILE" : true,
+                                    "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                                    "SCORE" : 10,
+                                    "SUB_SECTIONS" : [],
+                                    "SOURCE" : "OS",
+                                    "STATUS" : "A",
+                                    "CREATED_BY" : "1",
+                                    "MODIFIED_BY" : "1"
+                                }
+                            ],
+                            "HAS_SCORE" : true,
+                            "SOURCE" : "OS",
+                            "STATUS" : "A",
+                            "CREATED_BY" : "1",
+                            "MODIFIED_BY" : "1"
+                        }, 
+                        {
+                            "SECTION_KEY" : "PROOF_OF_USE",
+                            "SECTION_NAME" : "Proof of Use",
+                            "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_PROOF_OF_USE",
+                            "HAS_ADD_MORE" : true,
+                            "HAS_SCORE" : true,
+                            "HAS_MUTIPLE_FILE" : true,
+                            "MASTER_REF_DATA_KEY" : "FILE_TYPES",
+                            "HAS_FILE" : true,
+                            "SCORE" : 5,
+                            "SUB_SECTIONS" : [],
+                            "SOURCE" : "OS",
+                            "STATUS" : "A",
+                            "CREATED_BY" : "1",
+                            "MODIFIED_BY" : "1"
+                        }, 
+                        {
+                            "SECTION_KEY" : "SUGGESTED_NEXT_STEP",
+                            "SECTION_NAME" : "Suggested Next Steps",
+                            "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_SUMMARY",
+                            "HAS_ADD_MORE" : false,
+                            "HAS_SCORE" : true,
+                            "SCORE" : 5,
+                            "SUB_SECTIONS" : [],
+                            "SOURCE" : "OS",
+                            "STATUS" : "A",
+                           "CREATED_BY" : "1",
+                            "MODIFIED_BY" : "1"
+                        }, 
+                        {
+                            "SECTION_KEY" : "PERTINENT_PROVIDER",
+                            "SECTION_NAME" : "Pertinent Provider",
+                            "SECTION_FORM" : "PRADAXA_MICHAEL_BRADY_LYNCH_RECORD_HISTORY_TAB",
+                            "HAS_ADD_MORE" : true,
+                            "HAS_SCORE" : true,
+                            "SCORE" : 5,
+                            "SUB_SECTIONS" : [],
+                            "SOURCE" : "OS",
+                            "STATUS" : "A",
+                            "CREATED_BY" : "1",
+                            "MODIFIED_BY" : "1"
+                        }
+                    ]
+                }
+            },
+            "DEFAULT_REVIEWER_TYPE_ON_CASE_CREATION" : "MRR",
+            "DEFAULT_USER_TYPE_ON_CASE_CREATION" : "REVIEWER"
+        }
+    },
+    "SOURCE" : "OS",
+    "MODIFIED_BY" : "1",
+    "STATUS" : "A"
+}

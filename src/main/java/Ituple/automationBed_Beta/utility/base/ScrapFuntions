@@ -1,0 +1,197 @@
+	/**
+	 * <h1>open_FirefoxBrowser!</h1> This method will invoke a Firefox browser
+	 * with maximized window
+	 * @throws Exception 
+	 * 
+	 */
+
+
+	public static void setFirefoxDriverPath(){
+		System.setProperty("webdriver.gecko.driver",Constant.FirefoxDriverPath.getConstant());
+	}
+
+	public static WebDriver open_FirefoxBrowser() throws Exception {
+		try {
+			//setFirefoxDriverPath();
+			driver = new FirefoxDriver();
+			AdvanceReporting.addLogs("info","New driver instantiated");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			AdvanceReporting.addLogs("info","Implicit wait applied on the driver for 10 seconds");
+			openUrl();
+
+		} catch (Exception e) {
+			AdvanceReporting.addLogs("error","Class Utils | Method OpenBrowser | Exception desc : "
+					+ e.getMessage());
+			throw e;
+		}
+		return driver;
+	}
+
+
+	/**
+	 * open firefox with desired capabilities 
+	 * 
+	 * @param ACCEPT_SSL_CERTS,
+	 * */
+
+	public static WebDriver open_FirefoxBrowserWithCapabilities(boolean ACCEPT_SSL_CERTS) throws Exception {
+		try {
+			DesiredCapabilities cap = new DesiredCapabilities();
+			cap= DesiredCapabilities.firefox();
+
+			if(ACCEPT_SSL_CERTS){
+				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			}
+
+
+			driver = new FirefoxDriver(cap);
+			AdvanceReporting.addLogs("info","New driver instantiated");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			AdvanceReporting.addLogs("info","Implicit wait applied on the driver for 10 seconds");
+			openUrl();
+
+		} catch (Exception e) {
+			AdvanceReporting.addLogs("error","Class Utils | Method OpenBrowser | Exception desc : "
+					+ e.getMessage());
+			throw e;
+		}
+		return driver;
+	}
+
+
+	/**
+	 * Set proxy Address(IP) and port number as a String (ex:localhost:8080)
+	 * 
+	 * @param ProxyHostWithPort
+	 */
+	public static void openFirefoxWithProxySettings(String ProxyHostWithPort) {
+
+		Proxy proxy = new Proxy();
+		proxy.setHttpProxy(ProxyHostWithPort).setFtpProxy(ProxyHostWithPort)
+		.setSslProxy(ProxyHostWithPort)
+		.setSocksProxy(ProxyHostWithPort);
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setCapability(CapabilityType.PROXY, proxy);
+		driver = new FirefoxDriver(cap);
+		driver.manage().window().maximize();
+
+	}
+
+	/**
+	 * <h1>open_FirefoxBrowser_MobileView!</h1> This method will invoke a
+	 * Firefox browser by setting Iphone useragent
+	 */
+	public static WebDriver open_FirefoxBrowser_MobileView() throws Exception {
+		try {
+			setFirefoxDriverPath();
+			FirefoxProfile ffprofile = new FirefoxProfile();
+			ffprofile.setPreference("general.useragent.override", "iPhone");
+			// iPhone,
+			driver = new FirefoxDriver(ffprofile);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().window().setSize(new Dimension(400, 800));
+			openUrl();
+
+		} catch (Exception e) {
+			AdvanceReporting.addLogs("error","Class Utils | Method OpenBrowser -IPHONE | Exception desc : "
+					+ e.getMessage());
+			throw e;
+		}
+		return driver;
+	}
+
+	/**
+	 * <h1>open_FirefoxBrowser_TabletView!</h1> This method will invoke a
+	 * Firefox browser by setting Ipad useragent
+	 */
+	public static WebDriver open_FirefoxBrowser_TabletView() throws Exception {
+		try {
+			setFirefoxDriverPath();
+			FirefoxProfile ffprofile = new FirefoxProfile();
+			ffprofile.setPreference("general.useragent.override", "iPad");
+
+			driver = new FirefoxDriver(ffprofile);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().window().setSize(new Dimension(768, 1024));
+			openUrl();
+
+		} catch (Exception e) {
+			AdvanceReporting.addLogs("error","Class Utils | Method OpenBrowser - IPAD | Exception desc : "
+					+ e.getMessage());
+			throw e;
+		}
+		return driver;
+	}
+
+/*
+	 * public static PhantomJSDriver openHeadLessBrowser() throws Exception {
+	 * try { DesiredCapabilities phantomBeast = DesiredCapabilities.phantomjs();
+	 * 
+	 * phantomBeast.setJavascriptEnabled(true);
+	 * 
+	 * phantomBeast.setCapability("phantomjs.binary.path",
+	 * "D:\\eclipse\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe");
+	 * 
+	 * fd = new PhantomJSDriver(phantomBeast);
+	 * 
+	 * fd.manage().window().maximize();
+	 * fd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	 * 
+	 * fd.get(Constant.URL.getConstant());;
+	 * 
+	 * } catch (Exception e) {
+	 * AdvanceReporting.addLogs("error","Class Utils | Method OpenBrowser | Exception desc : " +
+	 * e.getMessage()); } return fd; }
+	 */
+	 
+	 
+	/**
+	 * <h1>open_ChromeBrowser!</h1> This method will invoke a chrome browser
+	 */
+	public static WebDriver open_ChromeBrowser() throws Exception {
+		try {
+			/*System.setProperty("webdriver.chrome.driver",
+					Constant.ChromeDriverPath.getConstant());*/
+			DesiredCapabilities capability = DesiredCapabilities.chrome();
+			capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			driver = new ChromeDriver(capability);
+
+			AdvanceReporting.addLogs("info","New driver instantiated");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			AdvanceReporting.addLogs("info","Implicit wait applied on the driver for 10 seconds");
+			driver.get(Constant.URL.getConstant());
+			AdvanceReporting.addLogs("info","Web application launched successfully");
+
+		} catch (Exception e) {
+			AdvanceReporting.addLogs("error","Class Utils | Method OpenBrowser | Exception desc : "
+					+ e.getMessage());
+			throw e;
+		}
+		return driver;
+	}
+	 
+	 public static WebDriver openIEBrowser() throws Exception {
+		try {
+			System.setProperty("webdriver.ie.driver", Constant.IEDriverPath.getConstant());
+			driver = new InternetExplorerDriver();
+			AdvanceReporting.addLogs("info","New driver instantiated");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			AdvanceReporting.addLogs("info","Implicit wait applied on the driver for 10 seconds");
+			driver.get(Constant.URL.getConstant());
+			driver.navigate()
+			.to("javascript:document.getElementById('overridelink').click()");
+			AdvanceReporting.addLogs("info","Web application launched successfully");
+
+		} catch (Exception e) {
+			AdvanceReporting.addLogs("error","Class Utils | Method OpenBrowser | Exception desc : "
+					+ e.getMessage());
+			throw e;
+		}
+		return driver;
+	}
+	
+	

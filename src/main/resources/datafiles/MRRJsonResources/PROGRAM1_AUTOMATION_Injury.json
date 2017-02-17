@@ -1,0 +1,43 @@
+{
+	"_id" : "PRADAXA_MICHAEL_BRADY_LYNCH_Injury",
+	"description" : "Pradaxa Michael Brady Lynch Injury Section",
+	"elements" : [
+
+				{
+					"type" : "select",
+					"name" : "PHYSICAL_INJURY",
+					"value" : "Brain/Cerebral Hemorrhage",
+					"subtabFlag" : false,
+                	"subTabs" : [
+                        {},{}
+                    ]
+				},
+				{
+					"type" : "select",
+					"name" : "HOSPITALIZED",
+					"value" : "No",
+					"subtabFlag" : false,
+					"subTabs" : [
+						{},{}
+					]
+				},
+				{
+					"type" : "select",
+					"name" : "INJURY_EVIDENCE_CATEGORY",
+					"value" : "No evidence of injury",
+					"subtabFlag" : false,
+                	"subTabs" : [
+                        {},{}
+                    ]
+				},
+				{
+					"type" : "select",
+					"name" : "TRANSFUSION",
+					"value" : "No",
+					"subtabFlag" : false,
+					"subTabs" : [
+						{},{}
+					]
+				}
+	]
+}

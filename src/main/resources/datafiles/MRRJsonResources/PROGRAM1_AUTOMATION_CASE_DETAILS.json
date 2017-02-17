@@ -1,0 +1,54 @@
+{
+    "_id" : "ObjectId('581c67450660fd699ac7f07c')",
+    "_class" : "com.ituple.common.module.form.entity.FormDTO",
+    "description" : "Pradaxa Michael Brady Lynch",
+    "formData" : {
+        "keyName" : "PRADAXA_MICHAEL_BRADY_LYNCH_CASE_DETAILS",
+        "formType" : "vertical-form",
+        "formName" : "PRADAXA_MICHAEL_BRADY_LYNCH_CASE_DETAILS",
+        "validate" : false,
+        "data" : {
+            "SHOW_IN_COLS" : true,
+            "COLS" : "3"
+        },
+        "elements" : [ 
+            {
+                "_id" : "PRADAXA_MICHAEL_BRADY_LYNCH_FORM_21",
+                "type" : "select",
+                "name" : "GENDER",
+                "bindName" : "CAUSE_OF_DEATH",
+                "status" : "A",
+                "label" : "Gender",
+                "value" : "Male",
+                "subtabFlag" : false,
+                "subTabs" : [
+                        {},{}
+                    ]
+            },
+            {
+                "_id" : "PRADAXA_MICHAEL_BRADY_LYNCH_FORM_6",
+                "type" : "text",
+                "name" : "CAUSE_OF_DEATH",
+                "bindName" : "CAUSE_OF_DEATH",
+                "status" : "A",
+                "label" : "Cause of Death",
+                "value" : "Fatal injury on Head",
+                "subtabFlag" : false,
+                "subTabs" : [
+                        {},{}
+                    ]
+            },
+            {
+                "_id" : "PRADAXA_MICHAEL_BRADY_LYNCH_FORM_7",
+                "type" : "select",
+                "name" : "DEATH_CERTIFICATE_FLAG",
+                "bindName" : "DEATH_CERTIFICATE_FLAG",
+                "value": "Yes",
+                "subtabFlag" : false,
+                "subTabs" : [
+                        {},{}
+                    ]
+            }
+            ]
+    }
+}

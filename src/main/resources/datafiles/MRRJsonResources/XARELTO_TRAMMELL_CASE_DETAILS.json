@@ -1,0 +1,43 @@
+{
+	"_id" : "ObjectId('581c67450660fd699ac7f07c')",
+    "_class" : "com.ituple.common.module.form.entity.FormDTO",
+    "description" : "Pradaxa Michael Brady Lynch",
+    "formData" : {
+        "keyName" : "XARELTO_TRAMMELL_ADJUSTMENT_FACTOR_ALCOHOL",
+        "formType" : "vertical-form",
+        "formName" : "XARELTO_TRAMMELL_ADJUSTMENT_FACTOR_ALCOHOL",
+        "validate" : false,
+        "data" : {
+            "SHOW_IN_COLS" : true,
+            "COLS" : "3"
+        },
+        "elements" : [ 
+            {
+                "_id" : "PRADAXA_MICHAEL_BRADY_LYNCH_FORM_6",
+                "type" : "text",
+                "name" : "CAUSE_OF_DEATH",
+                "bindName" : "CAUSE_OF_DEATH",
+                "status" : "A",
+                "label" : "Cause of Death",
+                "value":"Sun Stroke 1",
+                "subtabFlag" : false,
+                "subTabs" : [
+                        {},{}
+                    ]
+            },
+           {
+                "_id" : "XARELTO_TRAMMELL_FORM_7",
+                "type" : "select",
+                "name" : "DEATH_CERTIFICATE_FLAG",
+                "bindName" : "DEATH_CERTIFICATE_FLAG",
+                "status" : "A",
+                "label" : "Copy of death certificate and supporting documentation",
+                "value":"Yes",
+                "subtabFlag" : false,
+                "subTabs" : [
+                        {},{}
+                    ]
+            }
+            ]
+    }
+}
