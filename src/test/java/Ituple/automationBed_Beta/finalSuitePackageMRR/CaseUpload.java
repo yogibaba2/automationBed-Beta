@@ -33,7 +33,7 @@ public class CaseUpload extends SuiteBase {
 	
 
 	@BeforeTest
-	public void beforeTest() throws Exception {
+	public void beforeTest() throws Exception { 
 		init();
 		Utils.uBase.setupDriver();
 		Utils.uBase.intializeReport(suiteName);

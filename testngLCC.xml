@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"> 
+<suite guice-stage="DEVELOPMENT" name="MRRTest" > 
+
+
+<test name="smokeTest">
+	<classes> 
+       <class name="IItuple.automationBed_Beta.pom.lccSe.Suite1"/> 
+       
+    </classes> 
+</test>
+
+
+  <!-- <test  name="Login"> 
+    <classes> 
+       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.Login"/> 
+    </classes> 
+  </test> 
+  <test  name="CaseUpload"> 
+    <classes> 
+     
+       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.CaseUpload"/> 
+    </classes> 
+  </test> 
+  <test  name="CaseDetail"> 
+    <classes> 
+     
+       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.CaseDetail"/> 
+    </classes> 
+  </test> 
+  <test  name="SpecificCase"> 
+    <classes> 
+     
+       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.SpecificCase"/> 
+    </classes> 
+  </test>  -->
+  <!-- <test name="SmokeTest">
+  	   <packages>
+        <package name="Ituple.automationBed_Beta.finalSuitePackageMRR"/>
+     </packages>
+  </test> -->
+  
+  
+</suite>
+  

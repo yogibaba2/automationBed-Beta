@@ -1,48 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"> 
-<suite guice-stage="DEVELOPMENT" name="MRRTest" > 
+<suite guice-stage="DEVELOPMENT" name="LCCTest" > 
 
 
 <test name="smokeTest">
 	<classes> 
-       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.Login"/> 
-       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.CaseUpload"/> 
-       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.CaseDetail"/> 
-       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.SpecificCase"/>  
-       <!-- <class name="Ituple.automationBed_Beta.nfl.scheduling.SchedulingSuite"/>  -->
+       <class name="IItuple.automationBed_Beta.pom.lccSe.LoginPage"/> 
     </classes> 
 </test>
 
-
-  <!-- <test  name="Login"> 
-    <classes> 
-       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.Login"/> 
-    </classes> 
-  </test> 
-  <test  name="CaseUpload"> 
-    <classes> 
-     
-       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.CaseUpload"/> 
-    </classes> 
-  </test> 
-  <test  name="CaseDetail"> 
-    <classes> 
-     
-       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.CaseDetail"/> 
-    </classes> 
-  </test> 
-  <test  name="SpecificCase"> 
-    <classes> 
-     
-       <class name="Ituple.automationBed_Beta.finalSuitePackageMRR.SpecificCase"/> 
-    </classes> 
-  </test>  -->
-  <!-- <test name="SmokeTest">
-  	   <packages>
-        <package name="Ituple.automationBed_Beta.finalSuitePackageMRR"/>
-     </packages>
-  </test> -->
-  
-  
 </suite>
   

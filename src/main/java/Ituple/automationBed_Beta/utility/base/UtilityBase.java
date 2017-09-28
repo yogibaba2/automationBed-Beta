@@ -45,6 +45,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -225,8 +226,10 @@ public class UtilityBase {
 
     public Capabilities getCapabilities() {
     	Utils.addLog.traceEntry();
-        DesiredCapabilities capInstance = new DesiredCapabilities();
-
+        
+    	
+    	
+    	DesiredCapabilities capInstance = new DesiredCapabilities();       
         if (WdmConfig.getBoolean("wdm.capabilities.ACCEPT_SSL_CERTS")){
         	Utils.addLog.info("Adding ACCEPT_SSL_CERTS capapility to driver");
             capInstance.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
@@ -235,6 +238,14 @@ public class UtilityBase {
         	Utils.addLog.info("Adding javascriptEnabled capapility to driver");
             capInstance.setCapability(CapabilityType.SUPPORTS_JAVASCRIPT, true);
         }
+        if(WdmConfig.getString("wdm.browser").equalsIgnoreCase("chrome")){
+        	ChromeOptions options = new ChromeOptions();
+        	options.addArguments("--incognito");
+        	capInstance.setCapability(ChromeOptions.CAPABILITY, options);
+        }
+        
+        
+        
         /*IE specific capabilities*/
         if(WdmConfig.getString("wdm.browser").equalsIgnoreCase("internet")){
             if(WdmConfig.getBoolean("wdm.capabilities.session")){
@@ -551,8 +562,8 @@ public class UtilityBase {
         try {
             boolean elementIsClickable = element.isEnabled();
             if (elementIsClickable) {
+            	Utils.addLog.debug("{} : is clicked",element.getAttribute("name"));
                 element.click();
-                Utils.addLog.debug("{} : is clicked",element.getAttribute("name"));
                 return true;
             }
             else
@@ -627,6 +638,7 @@ public class UtilityBase {
     
     public void doubleClickWebelement(WebElement doubleclickonWebElement) throws InterruptedException {
     	Utils.addLog.traceEntry();
+    	Utils.addLog.debug("{} : is clicked",doubleclickonWebElement.getAttribute("name"));
         Actions builder = new Actions(driver);
         builder.doubleClick(doubleclickonWebElement).perform();
         Thread.sleep(2000);
@@ -1334,7 +1346,7 @@ public class UtilityBase {
                     return ((JavascriptExecutor) driver).executeScript(javaScriptToLoadAngular).equals(true);
                 }
             };
-            WebDriverWait wait = new WebDriverWait(driver, 200, 500); 
+            WebDriverWait wait = new WebDriverWait(driver, 300, 500); 
             refreshTimestamp();                                     
             String tempTimeStamp=timeStamp;
             wait.until(pendingHttpCallsCondition);
@@ -1622,5 +1634,67 @@ public class UtilityBase {
         }
 
     }
+    public void checkPendingRequests() {
+	    int timeoutInSeconds = 5;
+	    try {
+	        if (driver instanceof JavascriptExecutor) {
+	            JavascriptExecutor jsDriver = (JavascriptExecutor)driver;
+
+	            for (int i = 0; i< timeoutInSeconds; i++) 
+	            {
+	                Object numberOfAjaxConnections = jsDriver.executeScript("return window.openHTTPs");
+	                // return should be a number
+	                if (numberOfAjaxConnections instanceof Long) {
+	                    Long n = (Long)numberOfAjaxConnections;
+	                    //System.out.println("Number of active calls: " + n);
+	                    if (n.longValue() == 0L)  break;
+	                } else{
+	                    // If it's not a number, the page might have been freshly loaded indicating the monkey
+	                    // patch is replaced or we haven't yet done the patch.
+	                    monkeyPatchXMLHttpRequest();
+	                }
+	                Thread.sleep(1000);
+	            }
+	        }
+	        else {
+	           System.out.println("Web driver: " + driver + " cannot execute javascript");
+	        }
+	    }
+	    catch (InterruptedException e) {
+	        System.out.println(e);
+	    }    
+	}
+    public void monkeyPatchXMLHttpRequest() {
+	    try {
+	        if (driver instanceof JavascriptExecutor) {
+	            JavascriptExecutor jsDriver = (JavascriptExecutor)driver;
+	            Object numberOfAjaxConnections = jsDriver.executeScript("return window.openHTTPs");
+	            if (numberOfAjaxConnections instanceof Long) {
+	                return;
+	            }
+	            String script = "  (function() {" +
+	                "var oldOpen = XMLHttpRequest.prototype.open;" +
+	                "window.openHTTPs = 0;" +
+	                "XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {" +
+	                "window.openHTTPs++;" +
+	                "this.addEventListener('readystatechange', function() {" +
+	                "if(this.readyState == 4) {" +
+	                "window.openHTTPs--;" +
+	                "}" +
+	                "}, false);" +
+	                "oldOpen.call(this, method, url, async, user, pass);" +
+	                "}" +
+	                "})();";
+	            jsDriver.executeScript(script);
+	        }
+	        else {
+	           System.out.println("Web driver: " + driver + " cannot execute javascript");
+	        }
+	    }
+	    catch (Exception e) {
+	        System.out.println(e);
+	    }
+	}
+
 
 }

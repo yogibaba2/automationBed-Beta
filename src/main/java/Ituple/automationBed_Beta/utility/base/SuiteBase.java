@@ -23,7 +23,7 @@ public class SuiteBase {
 	}
 	
 	public void init(){
-		TestSuite = new Read_XLS(System.getProperty("user.dir")+"//src//main//resources//datafiles//TestSuite.xlsx");
+		TestSuite = new Read_XLS(System.getProperty("user.dir")+"//src//main//resources//datafiles//LCCTestSuite.xlsx");
 		Utils.uBase=new UtilityBase();
 		Utils.addLog=LogsManager.createLogger("application");
 	}
